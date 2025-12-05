@@ -2,31 +2,35 @@
 <html>
 <head>
     <title>Portfolio</title>
-    <link rel="stylesheet" href="https://unpkg.com/98.css"/>
 </head>
 <body>
 		<p id=count>0</p>
 		<button onclick=clicker()>press it</button>
 		<button onclick=upgrader()>upgrader</button>
+		<p id="cost">50</p>
 		<script>
 			var cost = 50
 			var score = 0
 			var upgrade = 1
 			function clicker() {
 				score += upgrade
-				document.getElementById("count").innerText = score;
+				updatecount()
 				console.log(score);
 			}
-			
+			                  
 			function upgrader() {
                 if (score > cost) {
                     score -= cost;
                     upgrade += 1;
 					cost *= 3;
+					document.getElementById("cost").innerText = cost;
+					updatecount()
                     console.log("it yeah")
                 }
 			}
-
+			function updatecount() {
+				document.getElementById("count").innerText = score;
+			}
     </script>
 </body>
 </html>

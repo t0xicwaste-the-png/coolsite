@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <h1>notepad</h1>
+        <input type="text" id="entry">
+        <button onclick="project()">write</button>
+        <p id="projector"></p>
+        <div id="entries"></div>
+        <button onclick="download()">download entries</button>
+        <script>
+            let numbro = 0;
+
+            function project() {
+                let entry = document.getElementById("entry").value;
+                const div = document.createElement("div");
+                const doc = document.getElementById("entries");
+                numbro += 1;
+                div.textContent = entry;
+                div.id = "div" + numbro;
+                div.style.cursor = "pointer";
+                doc.appendChild(div);
+            }
+
+            function download() {
+                let allEntries = "";
+                const doc = document.getElementById("entries");
+                for (let i = 1; i <= numbro; i++) {
+                    const div = document.getElementById("div" + i);
+                    allEntries += div.textContent + "\n";
+                }
+                const blob = new Blob([allEntries], { type: "text/plain" });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "all_entries.txt";
+                a.click();
+            }
+        </script>
+    </body>
+</html>

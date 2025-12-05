@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://unpkg.com/98.css"/>
+    <style>
+        #Window {
+            display: none;
+            width: 200px;
+            height: auto;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="window" role="tabpanel">
+        <button>home</button>
+        <button onclick="openProjectWindow()">projects</button>
+        <button onclick="openAboutWindow()">about</button>
+        <button onclick="openSecretWindow()">secret</button>
+    </div>
+        <div class="window" id="Window">
+            <div class="title-bar">
+                <div id="windowTitle" class="title-bar-text">window</div>
+                <div class="title-bar-controls">
+                    <button onclick="closeWindow()" aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button onclick="closeWindow()" aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="window-body" id="windowBody">
+            </div>
+        </div>
+    <script>
+        var clicksecret = 0
+        function closeWindow() {
+            document.getElementById("Window").style.display = "none";
+        }
+
+        function clearWindow() {
+            document.getElementById("windowBody").innerHTML = "";
+        }
+
+        function openProjectWindow() {
+            const win = document.getElementById("Window");
+            const body = document.getElementById("windowBody");
+            const title = document.getElementById("windowTitle");
+
+            clearWindow();
+            win.style.display = "block";
+            title.innerText = "projects";
+
+            const p = document.createElement("p");
+            p.innerText = "put project here";
+            body.appendChild(p);
+        }
+
+        function openAboutWindow() {
+            const win = document.getElementById("Window");
+            const body = document.getElementById("windowBody");
+            const title = document.getElementById("windowTitle");
+
+            clearWindow();
+            win.style.display = "block";
+            title.innerText = "about";
+
+            const p = document.createElement("p");
+            p.innerText = "my story";
+
+            const p1 = document.createElement("p");
+            p1.innerText = "interests";
+
+            const link = document.createElement("a");
+            link.href = "facts.html";
+            link.innerText = "fun facts";
+
+            body.appendChild(p);
+            body.appendChild(p1);
+            body.appendChild(link);
+        }
+        function openSecretWindow() {
+            const win = document.getElementById("Window");
+            const body = document.getElementById("windowBody");
+            const title = document.getElementById("windowTitle");
+
+            clearWindow();
+            win.style.display = "block";
+            title.innerText = "secret";
+
+            const p = document.createElement("p");
+            p.innerText = "suuuuuper seeeeecret";
+            p.id = "secret";
+            p.onclick = secret;
+            body.appendChild(p);
+        }
+
+        function secret() {
+            clicksecret += 1;
+            if (clicksecret === 5) {
+                window.location.href = 'clicker.html';
+            }
+        }
+
+    </script>
+</body>
+</html>
