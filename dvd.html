@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    background: black;
+  }
+
+  #dvd {
+    position: absolute;
+    width: 120px;
+    height: 60px;
+    background: purple;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+</head>
+<body>
+
+<div id="dvd">DVD</div>
+
+<script>
+const dvd = document.getElementById("dvd");
+let x = 50;
+let y = 50;
+let dx = 3;
+let dy = 3; 
+
+function animate() {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  const rect = dvd.getBoundingClientRect();
+
+  x += dx;
+  y += dy;
+
+  if (x <= 0 || x + rect.width >= width) {
+    dx *= -1;
+    changeColor();
+  }
+
+  if (y <= 0 || y + rect.height >= height) {
+    dy *= -1;
+    changeColor();
+  }
+
+  dvd.style.left = x + "px";
+  dvd.style.top = y + "px";
+
+  requestAnimationFrame(animate);
+}
+
+function changeColor() {
+  dvd.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+}
+
+animate();
+</script>
+
+</body>
+</html>
