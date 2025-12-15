@@ -15,9 +15,43 @@
                 cursor: pointer;
                 text-decoration: underline;
             }
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .nav-button {
+                font-size: 20px;
+                border: none;
+                background: none;
+                cursor: pointer;
+                color: white;
+            }
+
+            .nav-button:hover {
+                color: #ccc;
+            }
+
+            .topnav {
+                background-color: #1c1c1c;
+                width: 100%;
+                padding: 15px 0;
+            }
         </style>
     </head>
     <body>
+        <div class="topnav">
+            <ul>
+                <li><button class="nav-button" onclick="go('index.html')">home</button></li>
+                <li><button class="nav-button" onclick="go('blog.html')">blog</button></li>
+                <li><button class="nav-button" onclick="go('about.html')">about</button></li>
+                <li><button class="nav-button" onclick="go('projects.html')">projects</button></li>
+            </ul>
+        </div>
         <h1>Projects page</h1>
         <p>This is the projects page it has all the project(that are good enough) to be here</p>
         <h2><a class="links" href="notepad.html">Notepad</a></h2>
@@ -27,4 +61,9 @@
         <h2><a class="links" href="clicker.html">Clicker game</a></h2>
         <p>one of the first projects i made using javascript and you click and the price increases</p> 
     </body>
+    <script>
+        function go(page) {
+            window.location.href = page
+        }
+    </script>
 </html>

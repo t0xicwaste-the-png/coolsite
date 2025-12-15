@@ -5,7 +5,6 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
             background-color: #111;
             color: white;
         }
@@ -17,10 +16,45 @@
             line-height: 1.6;
             max-width: 700px;
         }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .nav-button {
+            font-size: 20px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            color: white;
+        }
+
+        .nav-button:hover {
+            color: #ccc;
+        }
+
+        .topnav {
+            background-color: #1c1c1c;
+            width: 100%;
+            padding: 15px 0;
+        }
+
     </style>
 </head>
 
 <body>
+    <div class="topnav">
+        <ul>
+            <li><button class="nav-button" onclick="go('index.html')">home</button></li>
+            <li><button class="nav-button" onclick="go('blog.html')">blog</button></li>
+            <li><button class="nav-button" onclick="go('about.html')">about</button></li>
+            <li><button class="nav-button" onclick="go('projects.html')">projects</button></li>
+        </ul>
+    </div>
     <h1>About me</h1>
     <p>
         hi im liam and i decided to make a website to show off, brag, and hide things from YOU.  
@@ -33,5 +67,10 @@
     <p>
         i have 43 hours on deltarune and like 25 on omori.
     </p>
+    <script>
+        function go(page) {
+            window.location.href = page
+        }
+    </script>
 </body>
 </html>
